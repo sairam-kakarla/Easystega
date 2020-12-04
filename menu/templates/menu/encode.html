@@ -1,0 +1,55 @@
+{% extends 'menu/nav.html' %}
+{% block body %}
+{% load static %}
+<div class="container" id="main">
+    <h1>Encode here</h1>
+    <div class="alert alert-info alert-dismissible fade show">
+        <p>
+        <strong>Info!</strong>
+        <br>
+        To encode information into image, please select the image from your device.
+        Enter information to be stored in the text area, also dont forget to enter your
+        custom key for encryption.
+        <br>
+        <br>
+       </p>
+       <a href="https://en.wikipedia.org/wiki/Steganography" target="_black">Want to know more about steganography</a>
+    </div>
+       <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% if messages %}
+        {% for message in messages %}
+         <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+         </button>
+         {{ message }}
+         </div>
+         {% endfor %}
+
+        {% endif %}
+        <label for="img">Select Image</label>
+        <br>
+        <input type="file" name="img" id="img" required onchange="previewEncodeImage()">
+        <br>
+        <textarea name="msg" placeholder="Enter your message here" required></textarea>
+        <br>
+        <label for="custom_key">Enter key</label>
+        <input type="text" id="custom_key" name="custom_key" placeholder="Key goes here">
+
+        <input type="submit"  class="btn btn-success" value="Encode">
+        </form>
+        <div class="original" style="display: none;">
+              <h3>Original</h3>
+              <img src="" alt="">
+        </div>
+        {% if source %}
+        <h3>Encoded</h3>
+        <div class="original">
+        <img src="/media/upload/{{source}}" alt="Encoded Image">
+        </div>
+        {% endif %}
+
+    </div>
+    {% endblock %}

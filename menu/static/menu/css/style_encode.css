@@ -1,0 +1,38 @@
+#main{
+    border-left: 3px solid green;
+    border-right: 3px solid green;
+
+}
+textarea{
+    width:50% !important;
+    height:250px !important;
+}
+body{
+    font-family: 'Comfortaa' ,cursive;
+}
+#message{
+    resize: both;
+    margin-bottom: 30px;
+}
+#myfile{
+    margin-bottom:30px;
+    margin-top:30px;
+}
+
+
+#customkey{
+    margin-top: 15px;
+    margin-bottom:15px;
+}
+#submit{
+    margin-bottom:30px;
+}
+.original img{
+    width:100%;
+    margin-bottom:30px;
+}
+
+input{
+    display:block;
+    margin-bottom:20px;
+}

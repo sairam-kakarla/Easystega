@@ -1,0 +1,19 @@
+{% extends 'menu/nav.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="container">
+<form method="post" class="from-group">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags }}">
+        {{message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% csrf_token %}
+    {{form|crispy}}
+    <button type="submit" class="btn btn-success">Login</button>
+    <p>Don't have an account? Create one <a href="/register">here</a></p>
+</form>
+</div>
+{% endblock %}

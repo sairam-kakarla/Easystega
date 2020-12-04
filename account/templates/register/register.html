@@ -1,0 +1,17 @@
+{% extends 'menu/nav.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="container">
+<form method="POST" class="form-group">
+    {% csrf_token %}
+    <fieldset class="form-group">
+        <legend class="border-bottom md-4">Join Today</legend>
+        {{form|crispy}}
+    </fieldset>
+
+
+    <button type="submit" class="btn btn-success">Register</button>
+    <p>Already have an account<a href='/login'>Login</a></p>
+</form>
+</div>
+{% endblock %}

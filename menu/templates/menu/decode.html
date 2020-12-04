@@ -1,0 +1,43 @@
+{% extends 'menu/nav.html' %}
+{% block body %}
+<div class="container">
+    <h1>Decode here</h1>
+    <div class="alert alert-info alert-dismissible fade show">
+        <p>
+        <strong>Info!</strong>
+        <br>
+        Select the image to be decoded.Provide the key used for
+        encryption. Provide the user name of the owner of the
+        image who encoded the information.
+       </p>
+    </div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if messages %}
+        {% for message in messages %}
+         <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+         </button>
+         {{ message }}
+         </div>
+         {% endfor %}
+        {% endif %}
+
+        {% if data %}
+        <textarea readonly>{{data}}</textarea>
+        <br>
+        {% endif %}
+        <input type="file" id="image_decode" name="image_decode">
+        <br>
+        <label for="owner_name">Enter Owner Username</label>
+        <input type="text" id="owner_name" name="owner_name">
+        <br>
+        <label for="custom_key">Enter key</label>
+        <input type="text" id="custom_key" placeholder="Key goes here" name="custom_key">
+        <br>
+        <input type="submit" class="btn btn-success" value="Decode">
+    </form>
+</div>
+{% endblock %}
+

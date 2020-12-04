@@ -1,0 +1,29 @@
+.navbar-center {
+    position: absolute;
+    left: 50%;
+
+}
+.navbar{
+    line-height:1;
+}
+.bg-custom {
+    background-image: linear-gradient(15deg, #82f772 0%, #5c6bf1ce 100%);
+}
+.navbar-brand{
+    font-size: 2em;
+
+}
+body{
+    font-family: 'Comfortaa' ,cursive;
+}
+.navbar-nav {
+    position:relative;
+    left:48%;
+}
+.nav-link{
+    font-size:1.1em;
+}
+#main{
+    margin-top:30px;
+    margin-bottom:30px;
+}
